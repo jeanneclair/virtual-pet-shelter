@@ -30,7 +30,7 @@ public class VirtualPetShelter {
 	public void feedAllPets() {
 
 		for (VirtualPet pet : petValues) {
-			pet.feed(-10);
+			pet.feed(Math.floor(Math.random() * 10));
 			pet.addHappiness();
 
 		}
@@ -39,7 +39,7 @@ public class VirtualPetShelter {
 	public void waterAllPets() {
 
 		for (VirtualPet pet : petValues) {
-			pet.water(-10);
+			pet.water(Math.floor(Math.random() * 10));
 			pet.addHappiness();
 
 		}
@@ -53,4 +53,14 @@ public class VirtualPetShelter {
 		// happiness += petted;
 
 	}
-}
+	
+	public void tick() {
+		
+		for (VirtualPet pet : petValues) {
+			pet.feed(-2);
+			pet.water(-2);
+			pet.pet(2);
+				
+		}
+	}
+ }

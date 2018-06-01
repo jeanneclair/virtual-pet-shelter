@@ -58,7 +58,7 @@ public class VirtualPet {
 	
 
 
-	public int feed(int fed) {
+	public int feed(double fed) {
 
 		hunger -= fed;
 		thirst += 10;
@@ -75,7 +75,7 @@ public class VirtualPet {
 
 	}
 
-	public int water(int watered) {
+	public int water(double watered) {
 
 		thirst -= watered;
 		happiness += 5;
