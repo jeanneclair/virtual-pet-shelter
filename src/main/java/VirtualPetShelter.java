@@ -50,7 +50,6 @@ public class VirtualPetShelter {
 		VirtualPet pet = pets.get(name);
 		pet.addHappiness();
 
-		// happiness += petted;
 
 	}
 	

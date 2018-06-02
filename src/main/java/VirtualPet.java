@@ -61,15 +61,15 @@ public class VirtualPet {
 	public int feed(double fed) {
 
 		hunger -= Math.floor(Math.random() * 10);
-		thirst += 10;
-		happiness += 10;
+		thirst += .10*thirst;
+		happiness += .10*happiness;
 
 		if (hunger < 0) {
-
+			
 			return hunger = 0;
-
+			
 		} else {
-
+			
 			return hunger;
 		}
 
@@ -78,7 +78,7 @@ public class VirtualPet {
 	public int water(double watered) {
 
 		thirst -= Math.floor(Math.random() * 10);
-		happiness += 5;
+		happiness += .10*happiness;
 
 		if (thirst < 0) {
 
@@ -99,6 +99,10 @@ public class VirtualPet {
 
 			return happiness = 100;
 
+		} else if (happiness < 0) {
+			
+			return happiness = 0;
+			
 		} else {
 
 			return happiness;
@@ -108,7 +112,15 @@ public class VirtualPet {
 
 	public void addHappiness() {
 		
-		happiness += Math.floor(Math.random() * 5);
+		if (hunger >= 50 || thirst >= 50) {
+			
+			happiness -= 50;
+			
+		} else {
+
+			happiness += Math.floor(Math.random() * 5);
+		}
+		
 	}
 	
 }
