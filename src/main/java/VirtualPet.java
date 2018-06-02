@@ -108,7 +108,7 @@ public class VirtualPet {
 
 	public void addHappiness() {
 		
-		happiness += Math.floor(Math.random() * 10);
+		happiness += Math.floor(Math.random() * 5);
 	}
 	
 }
