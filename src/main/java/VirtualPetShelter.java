@@ -30,7 +30,7 @@ public class VirtualPetShelter {
 	public void feedAllPets() {
 
 		for (VirtualPet pet : petValues) {
-			pet.feed(Math.floor(Math.random() * 10));
+			pet.feed(-Math.floor(Math.random() * 10));
 			pet.addHappiness();
 
 		}
