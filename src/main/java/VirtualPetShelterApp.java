@@ -20,12 +20,17 @@ public class VirtualPetShelterApp {
 		String menuChoice = "";
 
 		Boolean hasQuit = false;
-		do {
 
-			hasQuit = false;
-			petStatus(shelter);
-			petMenu();
-			menuChoice = input.nextLine();
+		while (hasQuit = true) {
+
+			do {
+
+				petStatus(shelter);
+				petMenu();
+				menuChoice = input.nextLine();
+
+			} while (!menuChoice.equals("1") && !menuChoice.equals("2") & !menuChoice.equals("3")
+					&& !menuChoice.equals("4") && !menuChoice.equals("5") && !menuChoice.equals("6"));
 
 			switch (menuChoice) {
 			case "1":
@@ -45,9 +50,9 @@ public class VirtualPetShelterApp {
 			case "3":
 
 				System.out.println("Who would you like to play with?");
-				String name = input.nextLine();
-				name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-				shelter.petSinglePet(name);
+				String namePlay = input.nextLine();
+				namePlay = namePlay.substring(0, 1).toUpperCase() + namePlay.substring(1).toLowerCase();
+				shelter.petSinglePet(namePlay);
 				shelter.tick();
 				System.out.println("Meow!\n");
 
@@ -62,6 +67,7 @@ public class VirtualPetShelterApp {
 				}
 
 				String nameAdopt = input.next();
+				nameAdopt = nameAdopt.substring(0, 1).toUpperCase() + nameAdopt.substring(1).toLowerCase();
 				VirtualPet pet = shelter.getAPet(nameAdopt);
 				shelter.adoptPet(pet);
 				System.out.println("Congratulations! You just adopted " + nameAdopt);
@@ -87,16 +93,18 @@ public class VirtualPetShelterApp {
 
 				break;
 
-			default:
-
-				menuChoice = input.nextLine();
-
-				break;
+			// default:
+			//
+			// menuChoice = input.nextLine();
+			//
+			// break;
 			}
 
-		} while (!hasQuit);
+		}
+		input.close();
 
-	}
+
+	} // end main method
 
 	private static void petMenu() {
 		System.out.println("\nWhat would you like to do now?\n");
