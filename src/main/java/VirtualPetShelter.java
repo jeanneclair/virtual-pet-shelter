@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class VirtualPetShelter {
@@ -16,10 +17,10 @@ public class VirtualPetShelter {
 
 		return pets.get(name);
 	}
+//test
+	public void addPet(String name, VirtualPet virtualPet) {
 
-	public void addPet(VirtualPet pet) {
-
-		pets.put(pet.getName(), pet);
+		pets.put(name, virtualPet);
 	}
 
 	public void adoptPet(VirtualPet pet) {
@@ -30,7 +31,7 @@ public class VirtualPetShelter {
 	public void feedAllPets() {
 
 		for (VirtualPet pet : petValues) {
-			pet.feed(-Math.floor(Math.random() * 10));
+			pet.feed(Math.floor(Math.random() * 10));
 			pet.addHappiness();
 
 		}
@@ -56,9 +57,7 @@ public class VirtualPetShelter {
 	public void tick() {
 		
 		for (VirtualPet pet : petValues) {
-			pet.feed(-2);
-			pet.water(-2);
-			pet.pet(2);
+			pet.tick();
 				
 		}
 	}

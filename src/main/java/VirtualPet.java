@@ -114,13 +114,18 @@ public class VirtualPet {
 		
 		if (hunger >= 50 || thirst >= 50) {
 			
-			happiness -= 50;
+			happiness -= 5;
 			
 		} else {
 
 			happiness += Math.floor(Math.random() * 5);
 		}
 		
+	}
+	public void tick () {
+		hunger += 2;
+		thirst += 2;
+		happiness -= 2;
 	}
 	
 }

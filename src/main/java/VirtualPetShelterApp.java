@@ -17,11 +17,16 @@ public class VirtualPetShelterApp {
 		shelter.pets.put("Copper", pet3);
 		shelter.pets.put("Louie", pet4);
 
-		String menuChoice = "";
+		String menuChoice;
 
-		Boolean hasQuit = false;
+		Boolean gameRunning = false;
+		
+		String intro = "Welcome to the Virtual Pet Shelter. Thank you for volunteering. Please feed and water all the cats. "
+				+ "\nSome of them may be tired or busy playing with their friends. So don't worry so much if they don't eat or drink a lot."
+				+ "\nWe encourage you to play with the cats one at a time. It will make them happy!\n";
 
-		while (hasQuit = true) {
+		System.out.println(intro);
+		while (gameRunning = true) {
 
 			do {
 
@@ -50,57 +55,59 @@ public class VirtualPetShelterApp {
 			case "3":
 
 				System.out.println("Who would you like to play with?");
-				String namePlay = input.nextLine();
-				namePlay = namePlay.substring(0, 1).toUpperCase() + namePlay.substring(1).toLowerCase();
-				shelter.petSinglePet(namePlay);
+				String playName = input.nextLine();
+				playName = playName.substring(0, 1).toUpperCase() + playName.substring(1).toLowerCase();
+				shelter.petSinglePet(playName);
 				shelter.tick();
-				System.out.println("Meow!\n");
+				System.out.println("\nMeow! Thanks for playing with " + playName + "!\n");
 
 				break;
 
 			case "4":
 
-				System.out.println("Who would you like to adopt?");
+				System.out.println("\nWho would you like to adopt?\n");
 				for (VirtualPet pet : shelter.getPets()) {
 
 					System.out.println(pet.getName() + "\t|" + pet.getDescription());
 				}
 
-				String nameAdopt = input.next();
-				nameAdopt = nameAdopt.substring(0, 1).toUpperCase() + nameAdopt.substring(1).toLowerCase();
-				VirtualPet pet = shelter.getAPet(nameAdopt);
+				String adoptName = input.next();
+				adoptName = adoptName.substring(0, 1).toUpperCase() + adoptName.substring(1).toLowerCase();
+				VirtualPet pet = shelter.getAPet(adoptName);
 				shelter.adoptPet(pet);
-				System.out.println("Congratulations! You just adopted " + nameAdopt);
+				System.out.println("\nCongratulations! You just adopted " + adoptName + "!\n");
 
 				break;
 
 			case "5":
 
-				System.out.println("Who would you like to admit?");
+				System.out.println("\nWho would you like to admit?\n");
 				String admitName = input.nextLine();
-				System.out.println("Please describe your pet.");
+				admitName = admitName.substring(0, 1).toUpperCase() + admitName.substring(1).toLowerCase();
+				System.out.println("\nPlease describe your pet.\n");
 				String admitDesc = input.nextLine();
-				VirtualPet admitPet = new VirtualPet(admitName, admitDesc);
-				shelter.addPet(admitPet);
-				System.out.println("Thank you for admitting " + admitName + "!");
+				System.out.println("How hungry is your pet?");
+				int admitHunger = input.nextInt();
+				System.out.println("How thirsty is your pet?");
+				int admitThirst = input.nextInt();
+				System.out.println("How happy is your pet?");
+				int admitHappiness = input.nextInt();
+				VirtualPet admitPet = new VirtualPet(admitName, admitDesc, admitHunger, admitThirst, admitHappiness);
+				shelter.addPet(admitName, admitPet);
+				System.out.println("\nThank you for admitting " + admitName + "!\n");
 
 				break;
 
 			case "6":
 
-				System.out.println("Thank you for visiting the shelter! Goodbye!");
+				System.out.println("\nThank you for visiting the shelter! Goodbye!");
 				System.exit(0);
 
 				break;
 
-			// default:
-			//
-			// menuChoice = input.nextLine();
-			//
-			// break;
-			}
+			} // end switch statement
 
-		}
+		} //end while loop
 		input.close();
 
 
