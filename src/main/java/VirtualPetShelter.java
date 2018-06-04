@@ -17,7 +17,7 @@ public class VirtualPetShelter {
 
 		return pets.get(name);
 	}
-//test
+
 	public void addPet(String name, VirtualPet virtualPet) {
 
 		pets.put(name, virtualPet);

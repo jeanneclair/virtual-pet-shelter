@@ -73,7 +73,7 @@ public class VirtualPetShelterTest {
 
 	}
 
-	@Test //wants me to import for Matchers... but it's imported!?!
+	@Test //passed
 	public void shouldReturnTrueWhenAdoptAPetReturnsSizeof1() {
 
 		VirtualPetShelter testPetShelter = new VirtualPetShelter();
@@ -81,7 +81,7 @@ public class VirtualPetShelterTest {
 		testPetShelter.addPet("Jupiter", new VirtualPet("Jupiter", "fat cat", 50, 50, 50));
 		testPetShelter.adoptPet(pet);
 
-		assertThat("Junebug", equalTo(testPetShelter.adoptPet(pet)));
+		assertThat(1, equalTo(testPetShelter.getPets().size()));
 
 	}
 
